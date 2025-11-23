@@ -1,0 +1,56 @@
+[package]
+name = "nats-ewebsock"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+default = []
+server-info = ["dep:serde", "dep:serde_json"]
+
+[dependencies]
+anyhow = "1.0.100"
+ewebsock = "0.8.0"
+serde = { version = "1.0.228", features = ["derive"], optional = true }
+serde_json = { version = "1.0.145", optional = true }
+tokio = { version = "1.48.0", features = ["sync"] }
+uuid = { version = "1.18.1", features = ["js", "v4"] }
+
+[dev-dependencies]
+async-nats = "0.45.0"
+bytes = "1.11.0"
+testcontainers = { version = "0.25.2", features = ["blocking"] }
+tokio-test = "0.4.4"
+
+[lints.clippy]
+
+# pedantic set with cherry-picked allows
+pedantic = { level = "warn", priority = 0 }
+#cast_possible_truncation = { level = "allow", priority = 1 } # part of pedantic
+#cast_precision_loss = { level = "allow", priority = 1 } # part of pedantic
+#cast_sign_loss = { level = "allow", priority = 1 } # part of pedantic
+#enum_glob_use = { level = "allow", priority = 1 } # part of pedantic
+#missing_errors_doc = { level = "allow", priority = 1 } # part of pedantic
+must_use_candidate = { level = "allow", priority = 1 } # part of pedantic
+#needless_pass_by_value = { level = "allow", priority = 1 } # part of pedantic
+#struct_excessive_bools = { level = "allow", priority = 1 } # part of pedantic
+#too_many_lines = { level = "allow", priority = 1 } # part of pedantic
+uninlined_format_args = { level = "allow", priority = 1 } # part of pedantic
+#unnecessary_wraps = { level = "allow", priority = 1 } # part of pedantic
+#unreadable_literal = { level = "allow", priority = 1 } # part of pedantic
+#unused_self = { level = "allow", priority = 1 } # part of pedantic
+
+# cherry-picked warns from restriction set
+expect_used = { level = "warn", priority = 0 } # part of restriction
+impl_trait_in_params = { level = "warn", priority = 0 } # part of restriction
+iter_over_hash_type = { level = "warn", priority = 0 } # part of restriction
+let_underscore_untyped = { level = "warn", priority = 0 } # part of restriction
+map_err_ignore = { level = "warn", priority = 0 } # part of restriction
+multiple_inherent_impl = { level = "warn", priority = 0 } # part of restriction
+panic = { level = "warn", priority = 0 } # part of restriction
+ref_patterns = { level = "warn", priority = 0 } # part of restriction
+renamed_function_params = { level = "warn", priority = 0 } # part of restriction
+str_to_string = { level = "warn", priority = 0 } # part of restriction
+unwrap_used = { level = "warn", priority = 0 } # part of restriction
+
+# cargo set with cherry-picked allows
+cargo = { level = "warn", priority = 0 }

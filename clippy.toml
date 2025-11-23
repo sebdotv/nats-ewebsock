@@ -1,0 +1,1 @@
+allowed-duplicate-crates = ["getrandom"] # both ewebsock and uuid depend on getrandom
