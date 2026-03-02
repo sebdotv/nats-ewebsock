@@ -13,6 +13,8 @@ Currently, it supports basic connection and messaging functionality:
 - Connect to a NATS server over WebSocket
 - Subscribe to subjects
 - Receive messages
+- Publish messages
+- Unsubscribe from subjects
 
 Planned features:
 
