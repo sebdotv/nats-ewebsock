@@ -1,7 +1,7 @@
 use std::str::FromStr;
 
 /// NATS subscription ID.
-#[derive(Debug)]
+#[derive(Debug, Clone, Eq, PartialEq)]
 pub struct SubscriptionId {
     inner: String,
 }
@@ -22,9 +22,9 @@ impl SubscriptionId {
     }
 }
 impl FromStr for SubscriptionId {
-    type Err = anyhow::Error;
+    type Err = String;
 
-    fn from_str(s: &str) -> anyhow::Result<Self, Self::Err> {
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
         // todo validate sid
         Ok(Self {
             inner: s.to_owned(),

@@ -1192,10 +1192,10 @@ dependencies = [
 name = "nats-ewebsock"
 version = "0.1.0"
 dependencies = [
- "anyhow",
  "async-nats",
  "bytes",
  "ewebsock",
+ "futures-util",
  "serde",
  "serde_json",
  "testcontainers",

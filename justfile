@@ -1,3 +1,6 @@
+default:
+    @just -f {{ justfile() }} --choose
+
 build:
     cargo build --all-targets
     cargo build --all-targets --all-features
@@ -8,14 +11,14 @@ doc:
     rm -rf target/doc
     cargo doc --lib --all-features --no-deps --open
 
-test:
-    cargo nextest run
+test *args:
+    cargo nextest run --all-targets --all-features {{ args }}
 
 ci:
     cargo sort --workspace
     cargo +nightly fmt --all
     just _clippy --all-targets --all-features
-    cargo test --all-targets --all-features
+    just -f {{ justfile() }} test
 
 # runs clippy twice: first time tries to fix issues, second time fails if there are still warnings
 _clippy *args:

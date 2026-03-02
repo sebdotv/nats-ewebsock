@@ -11,7 +11,7 @@ impl Subject {
     }
 }
 impl FromStr for Subject {
-    type Err = anyhow::Error;
+    type Err = String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         // todo validate subject name
