@@ -16,7 +16,6 @@ Currently, it supports basic connection and messaging functionality:
 
 Planned features:
 
-- Publish messages
 - Message Headers
 - Request-Reply pattern
 - Advanced connection options
